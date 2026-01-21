@@ -1,0 +1,32 @@
+{
+  "pairs": {
+    "BTC_USD": {
+      "rate": 88626.0,
+      "timestamp": "2026-01-21T12:10:56.433113+00:00",
+      "source": "CoinGecko",
+      "meta": {
+        "raw_id": "bitcoin",
+        "status_code": 200
+      }
+    },
+    "ETH_USD": {
+      "rate": 2938.02,
+      "timestamp": "2026-01-21T12:10:56.433113+00:00",
+      "source": "CoinGecko",
+      "meta": {
+        "raw_id": "ethereum",
+        "status_code": 200
+      }
+    },
+    "SOL_USD": {
+      "rate": 126.97,
+      "timestamp": "2026-01-21T12:10:56.433113+00:00",
+      "source": "CoinGecko",
+      "meta": {
+        "raw_id": "solana",
+        "status_code": 200
+      }
+    }
+  },
+  "last_refresh": "2026-01-21T12:10:56.665031+00:00"
+}

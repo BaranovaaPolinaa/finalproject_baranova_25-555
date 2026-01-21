@@ -1,0 +1,7 @@
+{
+  "DATA_DIR": "data",
+  "USERS_FILE": "users.json",
+  "PORTFOLIOS_FILE": "portfolios.json",
+  "RATES_FILE": "rates.json",
+  "RATES_TTL_SECONDS": 300
+}
