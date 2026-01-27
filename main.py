@@ -1,11 +1,14 @@
 import logging
 from typing import Optional
 
-from valutatrade_hub.parser_service.api_clients import CoinGeckoClient, ExchangeRateApiClient
-from valutatrade_hub.parser_service.updater import RatesUpdater
-from valutatrade_hub.parser_service.storage import load_rates
-from valutatrade_hub.core.services import UserManager, PortfolioManager
 from valutatrade_hub.core.exceptions import ApiRequestError
+from valutatrade_hub.core.services import PortfolioManager, UserManager
+from valutatrade_hub.parser_service.api_clients import (
+    CoinGeckoClient,
+    ExchangeRateApiClient,
+)
+from valutatrade_hub.parser_service.storage import load_rates
+from valutatrade_hub.parser_service.updater import RatesUpdater
 
 logging.basicConfig(
     level=logging.INFO,
@@ -37,7 +40,11 @@ def update_rates(source: Optional[str] = None):
         print(f"Ошибка обновления: {exc}")
 
 
-def show_rates(currency: Optional[str] = None, top: Optional[int] = None, base: str = "USD"):
+def show_rates(
+    currency: Optional[str] = None, 
+    top: Optional[int] = None, 
+    base: str = "USD",
+):
     """Показать локальные курсы валют"""
     data = load_rates()
     pairs = data.get("pairs", {})
@@ -57,7 +64,10 @@ def show_rates(currency: Optional[str] = None, top: Optional[int] = None, base: 
 
     if top:
         filtered = dict(
-            sorted(filtered.items(), key=lambda item: item[1]["rate"], reverse=True)[:top]
+            sorted(
+                filtered.items(), 
+                key=lambda item: item[1]["rate"], 
+                reverse=True)[:top]
         )
 
     if currency and not filtered:
@@ -105,7 +115,10 @@ exit                               — выйти из CLI
                 username, password = args
                 user_manager.register(username, password)
                 current_user = username
-                print(f"Пользователь '{username}' успешно зарегистрирован и вошёл в систему.")
+                print(
+                    f"Пользователь '{username}' успешно "
+                    "зарегистрирован и вошёл в систему."
+                )
             elif command == "login":
                 if len(args) < 2:
                     print("Использование: login <username> <password>")
@@ -162,7 +175,10 @@ exit                               — выйти из CLI
                 print("Выход из CLI...")
                 break
             else:
-                print(f"Неизвестная команда '{command}'. Введите 'help' для списка команд.")
+                print(
+                    f"Неизвестная команда '{command}'."
+                    "Введите 'help' для списка команд."
+                )
         except Exception as exc:
             print(f"Ошибка: {exc}")
 
